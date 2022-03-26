@@ -47,15 +47,15 @@ public class CardRequestTest {
         assertEquals(expected, actualText); //Как на лекции
     }
 
-//    @Test
-//    public void shouldExceptЁ() {
-//        driver.get("http://localhost:9999/");
-//        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Алёна Петрова");
-//        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
-//        driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
-//        driver.findElement(By.cssSelector("button")).click();
-//        driver.findElement(By.cssSelector("[data-test-id='order-success']")).isDisplayed(); //Так тесты будут стабильнее
-//    }
+    @Test
+    public void shouldExceptЁ() {
+        driver.get("http://localhost:9999/");
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Алёна Петрова");
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
+        driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
+        driver.findElement(By.cssSelector("button")).click();
+        driver.findElement(By.cssSelector("[data-test-id='order-success']")).isDisplayed(); //Так тесты будут стабильнее
+    }
 
     @Test
     public void shouldExceptDash() {
@@ -84,15 +84,15 @@ public class CardRequestTest {
         driver.findElement(By.cssSelector(".input_invalid")).isDisplayed();
     }
 
-//    @Test
-//    public void shouldNotSendDashForName() {
-//        driver.get("http://localhost:9999/");
-//        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("-");
-//        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
-//        driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
-//        driver.findElement(By.cssSelector("button")).click();
-//        driver.findElement(By.cssSelector(".input_invalid")).isDisplayed();
-//    }
+    @Test
+    public void shouldNotSendDashForName() {
+        driver.get("http://localhost:9999/");
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("-");
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
+        driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
+        driver.findElement(By.cssSelector("button")).click();
+        driver.findElement(By.cssSelector(".input_invalid")).isDisplayed();
+    }
 
     @Test
     public void shouldNotSendLatinName() {
@@ -124,15 +124,15 @@ public class CardRequestTest {
         driver.findElement(By.cssSelector(".input_invalid")).isDisplayed();
     }
 
-//    @Test
-//    public void shouldNotSendNameWithoutSurname() {
-//        driver.get("http://localhost:9999/");
-//        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Денис");
-//        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
-//        driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
-//        driver.findElement(By.cssSelector("button")).click();
-//        driver.findElement(By.cssSelector(".input_invalid")).isDisplayed();
-//    }
+    @Test
+    public void shouldNotSendNameWithoutSurname() {
+        driver.get("http://localhost:9999/");
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Денис");
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
+        driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
+        driver.findElement(By.cssSelector("button")).click();
+        driver.findElement(By.cssSelector(".input_invalid")).isDisplayed();
+    }
 
     @Test
     public void shouldNotSendWithoutPlusInPhone() {
