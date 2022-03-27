@@ -150,4 +150,11 @@ public class CardRequestTest {
         driver.findElement(By.cssSelector("button")).click();
         driver.findElement(By.cssSelector(".input_invalid")).isDisplayed();
     }
+
+    @Test
+    public void shouldNotSendWithoutPhone() {
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Иванов");
+        driver.findElement(By.cssSelector("button")).click();
+        driver.findElement(By.cssSelector(".input_invalid")).isDisplayed();
+    }
 }
