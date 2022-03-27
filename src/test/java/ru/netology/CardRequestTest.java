@@ -27,6 +27,7 @@ public class CardRequestTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999/");
     }
 
     @AfterEach
@@ -37,7 +38,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldSendForm() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Сергей Иванов");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -49,7 +49,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldExceptЁ() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Алёна Петрова");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -59,7 +58,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldExceptDash() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Анна-Мария Петрова");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -69,14 +67,12 @@ public class CardRequestTest {
 
     @Test
     public void shouldNotSendEmptyForm() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("button")).click();
         driver.findElement(By.cssSelector(".input_invalid")).isDisplayed();
     }
 
     @Test
     public void shouldNotSendSpaceForName() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys(" ");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -86,7 +82,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldNotSendDashForName() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("-");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -96,7 +91,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldNotSendLatinName() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Ivan Ivanov");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -106,7 +100,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldNotSendSpecialSymbols() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("!#&?");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -116,7 +109,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldNotSendNumbersInName() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван 1");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -126,7 +118,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldNotSendNameWithoutSurname() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Денис");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -136,7 +127,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldNotSendWithoutPlusInPhone() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Иванов");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("79991112233");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -146,7 +136,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldNotSendLessDigitsInPhone() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Иванов");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+7999111222");
         driver.findElement(By.cssSelector("[data-test-id='agreement'] span")).click();
@@ -156,7 +145,6 @@ public class CardRequestTest {
 
     @Test
     public void shouldNotSendWithoutCheckbox() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иван Иванов");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79991112233");
         driver.findElement(By.cssSelector("button")).click();
